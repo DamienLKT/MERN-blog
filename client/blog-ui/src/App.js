@@ -8,8 +8,9 @@ function App() {
 
   return (
     <>
-    <Topbar/>
-    <Homepage />
+    {/* <Topbar/>
+    <Homepage /> */}
+    <LoginPage/>
     </>
     // <Router>
     //   <Topbar />

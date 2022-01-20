@@ -1,5 +1,6 @@
 import {React, useState} from 'react';
 import Button from 'react-bootstrap/Button';
+import Inputfield from '../forms/Inputfield';
 
 const LoginForm = () => {
     const defaultInput = {
@@ -35,6 +36,7 @@ const LoginForm = () => {
       <form onSubmit={handleSubmit} method='POST'>
           <div>
               <h2 className='login-title'>Login</h2>
+              <Inputfield htmlfor='email' type='email' name='email' id='email' />
               <div className="form-group pb-3">
                   <label htmlFor='email'>Email:</label>
                   <input className="form-control"  type="email" name="email" id="email" required></input>

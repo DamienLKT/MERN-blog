@@ -4,7 +4,7 @@ import './login.css'
 
 function LoginPage() {
   return (
-    <div class="login-component">
+    <div className="login-component">
         <div className='card login-card-size'>
           <div className='card-body'>
               <LoginForm/>

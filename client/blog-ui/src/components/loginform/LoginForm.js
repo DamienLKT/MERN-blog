@@ -38,10 +38,12 @@ const LoginForm = () => {
         console.log(data);
         console.log(password);
         try{
-            await axios.post('http://localhost:5000/login', JSON.stringify(data), {
+            await axios.post('http://localhost:5000/api/users/login', JSON.stringify(data), {
                 headers: { "Content-Type": "application/json" }})
               .then(function (response) {
                 console.log(response);
+                sessionStorage.loggedin = true;
+                console.log(sessionStorage)
               })
               .catch(function (error) {
                 console.log(error);

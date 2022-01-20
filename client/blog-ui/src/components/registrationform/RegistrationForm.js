@@ -1,8 +1,11 @@
 import {React, useState} from 'react';
 import Inputfield from '../forms/Inputfield';
+import axios from 'axios';
 
 const RegistrationForm = () => {
     const [passwordError, setPasswordError] = useState("");
+
+    //validation for password
     const validate = (password) =>{
         let passwordError = "";
         
@@ -18,7 +21,7 @@ const RegistrationForm = () => {
         setPasswordError("");
         return true
     }
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault();
         const name = e.target.name.value;
         const age = e.target.age.value;
@@ -45,6 +48,14 @@ const RegistrationForm = () => {
         }
         try{
             console.log("password ok");
+            await axios.post('http://localhost:5000/api/users/', JSON.stringify(data), {
+                headers: { "Content-Type": "application/json" }})
+              .then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
         }catch{
             console.log('Error: ${err.message}');
         }

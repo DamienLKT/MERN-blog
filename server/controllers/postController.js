@@ -70,7 +70,7 @@ const updatePost = async(req,res) => {
       const post = await Post.findByIdAndUpdate( req.body.Post_ID,{  
               Post_Title: title,
               Post_Description: description,
-              Post_image = image,
+              Post_image: image,
             }
       );
      // await Post.save();

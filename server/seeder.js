@@ -17,7 +17,7 @@ const importData = async () => {
 
     await User.deleteMany()
 
-    await User.insertMany(posts)
+    await User.insertMany(users)
 
     console.log('Data Imported!')
     process.exit()

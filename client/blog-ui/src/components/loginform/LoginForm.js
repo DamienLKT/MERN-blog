@@ -35,15 +35,8 @@ const LoginForm = () => {
       <form onSubmit={handleSubmit} method='POST'>
           <div>
               <h2 className='login-title'>Login</h2>
-              {/* <Inputfield htmlfor='email' type='email' name='email' id='email' /> */}
-              <div className="form-group pb-3">
-                  <label htmlFor='email'>Email:</label>
-                  <input className="form-control"  type="email" name="email" id="email" required></input>
-              </div>
-              <div className="form-group pb-3">
-                  <label htmlFor='password'>Password:</label>
-                  <input className="form-control" type="password" name="password" id="password" required></input>
-              </div>
+              <Inputfield htmlfor='email' title= "Email" type='email' name='email' id='email' required={true}/>
+              <Inputfield htmlfor='password' title= "Password" type='password' name='password' id='password' required={true} />
           </div>
           <div className='pb-4'></div>
           <input className="btn btn-primary" type="submit" onSubmit={handleSubmit} value="Login"></input>

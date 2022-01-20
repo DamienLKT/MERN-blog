@@ -1,9 +1,9 @@
 import Topbar from "./components/topbar/Topbar";
 import Homepage from "./pages/home/Homepage";
 import LoginPage from "./pages/login/LoginPage";
+import RegisterPage from "./pages/register/RegisterPage";
 import Createpostpage from "./pages/createPost/Createpostpage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
 
 function App() {
   const currentUser = true;
@@ -14,6 +14,8 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/write" element={<Createpostpage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+
       </Routes>
     </BrowserRouter>
   );

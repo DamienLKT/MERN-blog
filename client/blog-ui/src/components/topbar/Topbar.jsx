@@ -13,7 +13,9 @@ const Topbar = () => {
       </div>
       <div className="topCenter">
         <ul className="topList">
-          <li className="topListItem">HOME</li>
+          <li className="topListItem">
+          <Link to='/'>HOME</Link>
+            </li>
           <li className="topListItem">ABOUT</li>
           <li className="topListItem">CONTACT</li>
           <li className="topListItem">WRITE</li>
@@ -29,8 +31,12 @@ const Topbar = () => {
           />
         ) : (
           <ul className="topList">
-            <li className="topListItem">LOGIN</li>
-            <li className="topListItem">REGISTER</li>
+            <li className="topListItem">
+              <Link to='/login'>LOGIN</Link>
+              </li>
+            <li className="topListItem">
+            <Link to='/register'>REGISTER</Link>
+              </li>
           </ul>
         )}
         <i className="topSearchIcon fas fa-search"></i>

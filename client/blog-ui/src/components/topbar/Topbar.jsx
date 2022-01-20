@@ -14,11 +14,13 @@ const Topbar = () => {
       <div className="topCenter">
         <ul className="topList">
           <li className="topListItem">
-          <Link to='/'>HOME</Link>
-            </li>
+            <Link to="/">HOME</Link>
+          </li>
           <li className="topListItem">ABOUT</li>
           <li className="topListItem">CONTACT</li>
-          <li className="topListItem">WRITE</li>
+          <Link to="write">
+            <li className="topListItem">WRITE</li>{" "}
+          </Link>
           {user && <li className="topListItem">LOGOUT</li>}
         </ul>
       </div>
@@ -32,17 +34,16 @@ const Topbar = () => {
         ) : (
           <ul className="topList">
             <li className="topListItem">
-              <Link to='/login'>LOGIN</Link>
-              </li>
+              <Link to="/login">LOGIN</Link>
+            </li>
             <li className="topListItem">
-            <Link to='/register'>REGISTER</Link>
-              </li>
+              <Link to="/register">REGISTER</Link>
+            </li>
           </ul>
         )}
         <i className="topSearchIcon fas fa-search"></i>
       </div>
     </div>
-
   );
 };
 

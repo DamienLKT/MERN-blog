@@ -36,6 +36,7 @@ const Topbar = () => {
         <i className="topSearchIcon fas fa-search"></i>
       </div>
     </div>
+
   );
 };
 

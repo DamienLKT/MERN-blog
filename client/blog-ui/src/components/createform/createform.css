@@ -11,9 +11,9 @@
 }
 
 .createFormSm {
-    position: absolute;
-    top: 18%;
+    position: center;
     font-size: 14px;
+    color: #444;
 }
 
 .createFormTitlesLg {
@@ -29,6 +29,21 @@
     object-fit: cover;
 }
 
+.buttons-createpost {
+    display: flex;
+    justify-content: center;
+}
+
 .button {
-    color: paleturquoise
+    background-color: paleturquoise;
+    height: 30px;
+    width: 100px;
+}
+
+.inputbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+    margin-top: 1%;
 }

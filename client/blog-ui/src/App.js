@@ -1,26 +1,21 @@
 import Topbar from "./components/topbar/Topbar";
-import Homepage from "./pages/home/Hompage"
+import Homepage from "./pages/home/Homepage";
 import LoginPage from "./pages/login/LoginPage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Createpostpage from "./pages/createPost/Createpostpage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 
 function App() {
-
-  return (
-    <>
-    {/* <Topbar/>
-    <Homepage /> */}
-    <LoginPage/>
-    </>
-    // <Router>
-    //   <Topbar />
-    //   <Routes>
-    //     <Route exact path ="/">
-    //       <Homepage/>
-    //     </Route>
-    //   </Routes>
-    // </Router>
-    
+  const currentUser = true;
+  return (    
+    <BrowserRouter>
+      <Topbar />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/write" element={<Createpostpage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

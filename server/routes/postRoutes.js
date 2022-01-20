@@ -3,11 +3,10 @@ const router = express.Router()
 import {
   getPosts,
   getPostsByUserId,
-  newPosts,
+  newPost,
 } from '../controllers/postController.js'
 
-router.route('/').get(getPosts)
-router.route('/').post(newPosts)
+router.route('/').get(getPosts).post(newPost)
 router.route('/user/:id').get(getPostsByUserId)
 
 export default router

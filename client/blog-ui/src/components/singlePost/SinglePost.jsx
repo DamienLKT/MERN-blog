@@ -25,6 +25,7 @@ const SinglePost = () => {
     };
     getPost();
   }, [path]);
+  
 
   return (
     <div className="singlePost">

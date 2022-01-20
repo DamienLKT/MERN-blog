@@ -2,7 +2,10 @@ import "./topbar.css";
 import { Link } from "react-router-dom";
 
 const Topbar = () => {
-  const user = false;
+  const user = sessionStorage.loggedin;
+  const handleClick = () => {
+    sessionStorage.login = false;
+  };
   return (
     <div className="top">
       <div className="topLeft">
@@ -21,7 +24,13 @@ const Topbar = () => {
           <Link to="write">
             <li className="topListItem">WRITE</li>{" "}
           </Link>
-          {user && <li className="topListItem">LOGOUT</li>}
+          <Link to="/">
+            {user && (
+              <li onClick={handleClick} className="topListItem">
+                LOGOUT
+              </li>
+            )}
+          </Link>
         </ul>
       </div>
       <div className="topRight">

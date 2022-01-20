@@ -1,6 +1,7 @@
 import express from 'express'
 import connectDB from './config/db.js'
 import postRoutes from './routes/postRoutes.js'
+import mongoose from 'mongoose'
 
 connectDB()
 

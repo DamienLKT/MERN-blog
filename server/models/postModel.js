@@ -18,22 +18,22 @@ import mongoose from 'mongoose'
 
 const postSchema = mongoose.Schema(
   {
-    user: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: 'User',
-    },
-    
+    // user: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   required: true,
+    //   ref: 'User',
+    // },
+
     post_id: {
       type: Number,
       required: true,
     },
-    
+
     post_title: {
       type: String,
       required: true,
     },
-    
+
     post_description: {
       type: String,
       required: true,
@@ -43,7 +43,6 @@ const postSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    
   },
   {
     timestamps: true,

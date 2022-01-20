@@ -1,10 +1,13 @@
-// @desc    Auth user & get token
+import asyncHandler from 'express-async-handler'
+import User from '../models/userModel.js'
+
+// @desc    Auth user
 // @route   POST /api/users/login
 // @access  Public
 const authUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body
+  const { Email, password } = req.body
 
-  const user = await User.findOne({ email })
+  const user = await User.findOne({ Email })
 
   if (user && (await user.matchPassword(password))) {
     res.json({
@@ -58,3 +61,5 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new Error('Invalid user data')
   }
 })
+
+export { authUser, registerUser }

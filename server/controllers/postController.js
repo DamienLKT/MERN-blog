@@ -60,4 +60,43 @@ const newPost = async (req, res) => {
   }
 }
 
-export { newPost, getPosts, getPostById, getPostsByUserId }
+const updatePost = async(req,res) => {
+  const post_id = req.body.Post_ID; 
+  const title = req.body.Post_Title;
+  const description = req.body.Post_Description;
+  const image = req.body.Post_image;
+
+  try{
+      const post = await Post.findByIdAndUpdate( req.body.Post_ID,{  
+              Post_Title: title,
+              Post_Description: description,
+              Post_image = image,
+            }
+      );
+     // await Post.save();
+     res.json(post);
+  
+  }
+  catch(e){
+      console.log(e.message);
+  }
+
+}
+
+const deletePost = async(req,res) => {
+  const post_id = req.body.Post_ID; 
+  try{
+      const del_post = await Post.deleteOne({
+              Post_ID: post_id,
+      });
+     // await Post.save();
+     res.json(del_post);
+      
+  }
+  catch(e){
+      console.log(e.message);
+  }
+
+}
+
+export { newPost, getPosts, getPostById, getPostsByUserId, updatePost, deletePost}

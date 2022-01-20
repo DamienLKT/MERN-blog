@@ -3,19 +3,15 @@ import Inputfield from '../forms/Inputfield';
 import axios from 'axios';
 
 const LoginForm = () => {
-    const defaultInput = {
-        email:'',
-        password:''
-    };
 
-    // const validate = () =>{
+    // const validate = (email,password) =>{
     //     let emailError = "";
     //     let passwordError = "";
     //     const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    //     if (!this.state.email || reg.test(this.state.email) === false) {
+    //     if (!email || reg.test(email) === false) {
     //     emailError = "Email Field is Invalid ";
     //     }
-    //     if (!this.state.password) {
+    //     if (!password) {
     //     passwordError = "Password field is required";
     //     }
     //     if (emailError || passwordError) {
@@ -34,7 +30,7 @@ const LoginForm = () => {
     //     });
     //   }
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
@@ -42,13 +38,14 @@ const LoginForm = () => {
         console.log(data);
         console.log(password);
         try{
-            // axios.post('/login', data)
-            //   .then(function (response) {
-            //     console.log(response);
-            //   })
-            //   .catch(function (error) {
-            //     console.log(error);
-            //   });
+            await axios.post('http://localhost:5000/login', JSON.stringify(data), {
+                headers: { "Content-Type": "application/json" }})
+              .then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
 
         }catch{
             console.log('Error: ${err.message}');

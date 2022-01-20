@@ -1,16 +1,50 @@
-import {React} from 'react';
+import {React, useState} from 'react';
 import Inputfield from '../forms/Inputfield';
 
 const RegistrationForm = () => {
-
+    const [passwordError, setPasswordError] = useState("");
+    const validate = (password) =>{
+        let passwordError = "";
+        
+        if (!password) {
+            setPasswordError("Password field is required")
+            return false
+        }
+        const reg = /^(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,}$/;
+        if (!password || reg.test(password) === false) {
+            setPasswordError("Password should have minimum eight characters, at least 1 uppercase character, one number and one special character");
+            return false;
+        }
+        setPasswordError("");
+        return true
+    }
     const handleSubmit = (e) =>{
         e.preventDefault();
+        const name = e.target.name.value;
+        const age = e.target.age.value;
         const email = e.target.email.value;
+        const phone = e.target.phone.value;
+        const city = e.target.city.value;
+        const country = e.target.country.value;
         const password = e.target.password.value;
-        console.log(e.target);
-        console.log(password);
-        try{
+        const data = { 
+            'name': name,
+            'age': age,
+            'email':email,
+            'phone':phone,
+            'city':city,
+            'country':country,
+            'password':password
+        }
 
+        console.log(validate(password));
+        console.log(data);
+        console.log(password);
+        if(!validate(password)){
+            return;
+        }
+        try{
+            console.log("password ok");
         }catch{
             console.log('Error: ${err.message}');
         }
@@ -30,6 +64,7 @@ const RegistrationForm = () => {
               <Inputfield htmlfor='city' title= "City" type='text' name='city' id='city' />
               <Inputfield htmlfor='country' title= "Country" type='text' name='country' id='country' />
               <Inputfield htmlfor='password' title= "Password" type='password' name='password' id='password' />
+              <span className="text-danger">{passwordError}</span>
           </div>
           <div className='pb-4'></div>
           <input className="btn btn-primary" type="submit" onSubmit={handleSubmit} value="Register"></input>

@@ -1,0 +1,49 @@
+.createForm {
+    margin-top: 60px;
+}
+
+.createFormTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Lora", serif;
+    color: #444;
+}
+
+.createFormSm {
+    position: center;
+    font-size: 14px;
+    color: #444;
+}
+
+.createFormTitlesLg {
+    position: absolute;
+    top: 20%;
+    font-size: 100px;
+}
+
+.backgroundImg {
+    width: 100%;
+    height: 450px;
+    margin-top: 80px;
+    object-fit: cover;
+}
+
+.buttons-createpost {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    background-color: paleturquoise;
+    height: 30px;
+    width: 100px;
+}
+
+.inputbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+    margin-top: 1%;
+}

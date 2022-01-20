@@ -13,6 +13,19 @@ const getPosts = async (req, res) => {
   }
 }
 
+// @route    GET api/posts/:id
+// @desc     Get user's posts
+// @access   Private
+const getPostById = async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id)
+    res.json(post)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+}
+
 // @route    GET api/posts/user/:id
 // @desc     Get user's posts
 // @access   Private
@@ -47,4 +60,4 @@ const newPost = async (req, res) => {
   }
 }
 
-export { newPost, getPosts, getPostsByUserId }
+export { newPost, getPosts, getPostById, getPostsByUserId }

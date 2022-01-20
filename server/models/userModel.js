@@ -3,59 +3,56 @@ import bcrypt from 'bcryptjs'
 
 const userSchema = mongoose.Schema(
   {
-    user_id: {
-        type: Number,
+    User_ID: {
+        type: mongoose.Schema.Types.ObjectID,
         required: true,
     },
     
-    name: {
+    Name: {
       type: String,
       required: true,
     },
 
-    age: {
+    Age: {
         type: Number,
         required: true,
 
     },
 
-    birthday: {
+    Birthday: {
         type: Date,
         required: true, 
     },
 
-    email: {
+    Email: {
       type: String,
       required: true,
       unique: true,
     },
 
-    phone: {
+    Phone: {
         type: Number,
         required: true,
         unique: true,
     },
 
-    city: {
+    City: {
         type: String, 
         required: true, 
 
     },
 
-    country: {
-        type: String
+    Country: {
+        type: String,
         required: true, 
     },
 
-    password: {
-      type: String,
-      required: true,
-    },
-    isAdmin: {
-      type: Boolean,
-      required: true,
-      default: false,
-    },
+    
+   password: {
+     type: String,
+     required: true,
+   },
+ 
   },
   {
     timestamps: true,
@@ -65,6 +62,8 @@ const userSchema = mongoose.Schema(
 userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password)
 }
+
+//check if using
 
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) {

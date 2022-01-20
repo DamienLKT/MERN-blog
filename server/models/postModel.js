@@ -1,48 +1,35 @@
 import mongoose from 'mongoose'
 
-//const reviewSchema = mongoose.Schema(
-//  {
-//    name: { type: String, required: true },
-//    rating: { type: Number, required: true },
-//    comment: { type: String, required: true },
-//    user: {
-//      type: mongoose.Schema.Types.ObjectId,
-//      required: true,
-//      ref: 'User',
-//    },
-//  },
-//  {
-//    timestamps: true,
-//  }
-//)
 
 const postSchema = mongoose.Schema(
   {
-    // user: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   required: true,
-    //   ref: 'User',
-    // },
-
-    post_id: {
-      type: Number,
+    User_ID: { //check if required, if required do we display user id or user name?
+      type: mongoose.Schema.Types.ObjectId,
+      //type: String,
+      required: true,
+      ref: 'User',
+    },
+    
+    Post_ID: {
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
     },
-
-    post_title: {
+    
+    Post_Title: {
       type: String,
       required: true,
     },
 
-    post_description: {
+    Post_Description: {
       type: String,
       required: true,
     },
 
-    post_image: {
+    Post_image: {
       type: String,
       required: true,
     },
+    
   },
   {
     timestamps: true,

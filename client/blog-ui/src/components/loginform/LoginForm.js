@@ -1,5 +1,4 @@
 import {React, useState} from 'react';
-import Button from 'react-bootstrap/Button';
 import Inputfield from '../forms/Inputfield';
 
 const LoginForm = () => {
@@ -36,7 +35,7 @@ const LoginForm = () => {
       <form onSubmit={handleSubmit} method='POST'>
           <div>
               <h2 className='login-title'>Login</h2>
-              <Inputfield htmlfor='email' type='email' name='email' id='email' />
+              {/* <Inputfield htmlfor='email' type='email' name='email' id='email' /> */}
               <div className="form-group pb-3">
                   <label htmlFor='email'>Email:</label>
                   <input className="form-control"  type="email" name="email" id="email" required></input>
@@ -47,7 +46,7 @@ const LoginForm = () => {
               </div>
           </div>
           <div className='pb-4'></div>
-          <Button as='input' variant="primary" type="submit" onSubmit={handleSubmit} value="Login"></Button>
+          <input className="btn btn-primary" type="submit" onSubmit={handleSubmit} value="Login"></input>
       </form>
     </div>
   )
